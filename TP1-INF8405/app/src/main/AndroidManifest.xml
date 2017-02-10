@@ -15,6 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".RulesClass" ></activity>
+        <activity android:name=".LevelSelect" ></activity>
     </application>
 
 </manifest>
