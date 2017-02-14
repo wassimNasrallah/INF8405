@@ -16,6 +16,7 @@ public enum ItemTypeEnum {
     private String texturePath;
 
     ItemTypeEnum(final String texturePath) {
+
         this.texturePath = texturePath;
     }
 

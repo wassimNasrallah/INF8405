@@ -10,13 +10,17 @@ public enum LevelEnum {
     LEVEL_3("level3"),
     LEVEL_4("level4");
 
-    private String texturePath;
+    private String levelName;
 
-    LevelEnum(final String texturePath) {
-        this.texturePath = texturePath;
+    LevelEnum(final String levelName) {
+        this.levelName = levelName;
     }
 
-    public String getTexturePath() {
-        return texturePath;
+    public String getLevelName() {
+        return levelName;
+    }
+
+    public boolean isEqual(LevelEnum level) {
+        return this.getLevelName().equals(level.getLevelName());
     }
 }

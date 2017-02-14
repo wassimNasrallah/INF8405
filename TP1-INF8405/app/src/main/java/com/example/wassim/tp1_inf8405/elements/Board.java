@@ -5,14 +5,22 @@ package com.example.wassim.tp1_inf8405.elements;
  */
 
 public class Board {
-    Cell [][] cells;
+    //game
+    private Cell [][] cells;
+    private LevelEnum level;
+
+    //utilitary attributes
     ItemFactory itemFactory;
     ItemHandler itemHandler;
     SwapController swapController;
     MatchFinder matchFinder;
+    LevelFactory levelFactory;
 
-    public Board(int sizeX, int sizeY){
-        cells = new Cell[sizeX][sizeY];
+    public Board(LevelEnum level){
+        this.level = level;
+
+        levelFactory = new LevelFactory();
+
         itemFactory = new ItemFactory();
         itemHandler = new ItemHandler();
         swapController = new SwapController(this);
@@ -21,8 +29,12 @@ public class Board {
 
     }
 
-    public void prepare(LevelEnum level){
-
+    /**
+     * Set the cell acording to a level
+     * @param newCells
+     */
+    private void prepareLevel(){
+        cells = levelFactory.buildLevel(level);
     }
 
     public void reset(LevelEnum level){
