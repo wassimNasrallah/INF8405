@@ -6,7 +6,7 @@ package com.example.wassim.tp1_inf8405.elements;
 
 public class Board {
     //game
-    private Cell [][] cells;
+
     private Level level;
     private int score;
     private int moves;
@@ -29,7 +29,7 @@ public class Board {
     }
 
     private void prepareLevel(){
-        cells = levelFactory.buildLevel(level);
+        level = levelFactory.buildLevel(level);
         score = 0;
         moves = 0;
     }
