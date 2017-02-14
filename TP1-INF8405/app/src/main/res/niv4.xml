@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<numberOfRow="8" numberOfColumn="7">
+<numberHit="10" pointsObjective="1800">
+<row>red orange orange red green orange green</row>
+<row>purple red blue purple blue blue green</row>
+<row>blue purple red orange orange purple purple</row>
+<row>green purple orange red purple purple blue</row>
+<row>green orange blue purple blue red orange</row>
+<row>blue purple blue blue green orange red</row>
+<row>green green orange purple green red green</row>
+<row>blue orange blue orange blue purple orange</row>
