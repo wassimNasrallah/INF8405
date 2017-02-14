@@ -4,15 +4,12 @@ package com.example.wassim.tp1_inf8405.elements;
  * Created by gamyot on 2017-02-14.
  */
 
-public enum LevelEnum {
-    LEVEL_1("level1"),
-    LEVEL_2("level2"),
-    LEVEL_3("level3"),
-    LEVEL_4("level4");
-
+public class Level {
     private String levelName;
+    private int scoreGoal;
+    private int maxMoves;
 
-    LevelEnum(final String levelName) {
+    Level(final String levelName) {
         this.levelName = levelName;
     }
 
@@ -20,7 +17,7 @@ public enum LevelEnum {
         return levelName;
     }
 
-    public boolean isEqual(LevelEnum level) {
+    public boolean isEqual(Level level) {
         return this.getLevelName().equals(level.getLevelName());
     }
 }

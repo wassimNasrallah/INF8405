@@ -7,7 +7,9 @@ package com.example.wassim.tp1_inf8405.elements;
 public class Board {
     //game
     private Cell [][] cells;
-    private LevelEnum level;
+    private Level level;
+    private int score;
+    private int moves;
 
     //utilitary attributes
     ItemFactory itemFactory;
@@ -16,30 +18,22 @@ public class Board {
     MatchFinder matchFinder;
     LevelFactory levelFactory;
 
-    public Board(LevelEnum level){
+    public Board(Level level){
         this.level = level;
-
+        prepareLevel();
         levelFactory = new LevelFactory();
-
         itemFactory = new ItemFactory();
         itemHandler = new ItemHandler();
         swapController = new SwapController(this);
         matchFinder = new MatchFinder();
-
-
     }
 
-    /**
-     * Set the cell acording to a level
-     * @param newCells
-     */
     private void prepareLevel(){
         cells = levelFactory.buildLevel(level);
+        score = 0;
+        moves = 0;
     }
 
-    public void reset(LevelEnum level){
-
-    }
 
     public void update(){
 
