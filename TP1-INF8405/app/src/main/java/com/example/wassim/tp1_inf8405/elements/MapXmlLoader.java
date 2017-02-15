@@ -19,11 +19,11 @@ public class MapXmlLoader extends AppCompatActivity {
 
     private static Context context;
 
-    public static void setContext(Context c){
+    ///On sauve le context pour ne pas avoir besoin d'aller le chercher a chaque fois qu'un niveau doit etre ouvert
+    public static void setContext(Context c) {
         context = c;
     }
-    public MapXmlLoader(){
-    }
+    //Pour loader un xml, il suffit du numero de la map que l'on desire
     public Level loadXml(int mapNumber) throws XmlPullParserException, IOException {
         int id=0;
         String lvlName = null;
@@ -44,6 +44,7 @@ public class MapXmlLoader extends AppCompatActivity {
                 id = R.xml.map4;
                 lvlName = "Niveau 4";
         }
+
         XmlResourceParser xmlLoader = context.getResources().getXml(id);
 
         int nbRow = 0;
@@ -53,11 +54,13 @@ public class MapXmlLoader extends AppCompatActivity {
         String[] rowData = null;
         int eventType = xmlLoader.getEventType();
         int rowIndex = 0;
+
         while(eventType != XmlPullParser.END_DOCUMENT){
 
             if(eventType == XmlPullParser.START_TAG){
                 String tagName = xmlLoader.getName();
                 if( tagName.equalsIgnoreCase("mapinfo")){
+                    //toutes les informations sur la map sont dans le bloc du tag "mapinfo" leur ordre est inportant, les espace et les "" ne le sont pas
                     String data = xmlLoader.nextText();
                     String nbRowTxt = data.substring(0,data.indexOf("nbColumns")).replaceAll("nbRow","").replaceAll("=","").replaceAll("\"","").trim();
                     String nbColumnTxt = data.substring(data.indexOf("nbColumns"),data.indexOf("nbMove")).replaceAll("nbColumns","").replaceAll("=","").replaceAll("\"","").trim();
@@ -69,15 +72,18 @@ public class MapXmlLoader extends AppCompatActivity {
                     nbMoves = Integer.parseInt(nbMoveTxt);
                     ptsNeeded = Integer.parseInt(ptsNeededTxt);
                 }else if(tagName.equalsIgnoreCase("row")){
+                    //on sauve d'abord le texte correspontant aux lignes
                     rowData[rowIndex++] = xmlLoader.nextText();
                 }
             }
             eventType = xmlLoader.nextToken();
         }
+        //on initialise les Cell
         Cell[][] cells = new Cell[nbRow][nbColumns];
         for(int i=0;i<nbRow;i++){
             int j = 0;
             for(String s : rowData[i].split(" ")){
+                //on cree un item que l'on met dans la cellule, l'item est cree a partir de la chaine de carractere correspondant a la couleur de l'item
                 Cell c = new Cell(new Item(s));
                 cells[i][j++] = c;
             }

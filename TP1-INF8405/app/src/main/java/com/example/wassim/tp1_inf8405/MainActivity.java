@@ -21,7 +21,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         MapXmlLoader.setContext(getApplicationContext());
         setContentView(R.layout.welcome_screen);
-        new Board(1);
         butListener();
     }
 
