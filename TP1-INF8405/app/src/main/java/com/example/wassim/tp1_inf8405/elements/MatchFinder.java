@@ -13,8 +13,9 @@ public class MatchFinder {
     private Cell[][] boardCells;
     private Level level;
 
-    public MatchFinder(Cell[][] boardCells, Level level) {
-        this.boardCells = boardCells;
+    public MatchFinder(Level level) {
+
+        this.boardCells = level.getCells();
         this.level = level;
     }
 
