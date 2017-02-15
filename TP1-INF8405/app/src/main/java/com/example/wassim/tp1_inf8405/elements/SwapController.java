@@ -1,5 +1,7 @@
 package com.example.wassim.tp1_inf8405.elements;
 
+import java.util.List;
+
 /**
  * Created by gamyot on 2017-02-14.
  */
@@ -39,6 +41,22 @@ public class SwapController {
             cell2.putItem(tempItem);
             isSucces = true;
         }
+
+        MatchFinder matchFinder = new MatchFinder(level);
+
+        List<MatchResult> matchResultList = matchFinder.findMatches();
+        if(matchResultList.size() < 1){
+            isSucces = false;
+            //unswap
+            Item tempItem = cell1.getItem();
+            cell1.putItem(cell2.getItem());
+            cell2.putItem(tempItem);
+        }
+        else{
+            //delete cells and increment score and swap count
+        }
+
+
         return isSucces;
     }
 
