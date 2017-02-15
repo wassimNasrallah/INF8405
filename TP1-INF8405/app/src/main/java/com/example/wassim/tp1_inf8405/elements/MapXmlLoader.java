@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class MapXmlLoader extends AppCompatActivity {
 
-    private static Context context;
+    public static Context context;
 
     public static void setContext(Context c){
         context = c;

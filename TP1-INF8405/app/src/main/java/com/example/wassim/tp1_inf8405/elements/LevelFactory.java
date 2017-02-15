@@ -7,7 +7,6 @@ package com.example.wassim.tp1_inf8405.elements;
 public class LevelFactory {
 
     public Level buildLevel(int levelId){
-        //TODO::call parser and fill the cells with the imported items
         try{
             return new MapXmlLoader().loadXml(levelId);
         }

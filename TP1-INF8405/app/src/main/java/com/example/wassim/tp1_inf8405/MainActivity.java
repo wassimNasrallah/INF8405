@@ -28,14 +28,14 @@ public class MainActivity extends Activity {
     public void butListener () {
 
         rules = (Button) findViewById(R.id.buttonRules);
-       /* rules.setOnClickListener(new View.OnClickListener() {
+        rules.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(getBaseContext(), RulesClass.class);
                 startActivity(myIntent);
             }
-        });*/
+        });
 
         start = (Button) findViewById(R.id.buttonStart);
         start.setOnClickListener(new View.OnClickListener() {
