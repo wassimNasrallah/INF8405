@@ -40,6 +40,8 @@ public class GameView extends SurfaceView implements Runnable {
     private Point screenSize;
     private int vector;
     private int decal;
+    private int xStart;
+    private int yStart;
     private Map<ItemTypeEnum,Bitmap> bitMapForType;
 
 private Board board ;
@@ -147,11 +149,12 @@ private Board board ;
         switch (motionEvent.getAction() & MotionEvent.ACTION_MASK){
             //when the user press the screen
             case MotionEvent.ACTION_UP:
-                board.getLevel().getCells()[yIndex][xIndex].putItem(new Item(ItemTypeEnum.TYPE_NONE));
+                xStart = xIndex;
+                yStart = yIndex;
                 break;
             //when the user release the screen
             case MotionEvent.ACTION_DOWN:
-
+                //TODO: call swap avec xstart,ystart, xindex et yindex
                 break;
         }
         return true;
