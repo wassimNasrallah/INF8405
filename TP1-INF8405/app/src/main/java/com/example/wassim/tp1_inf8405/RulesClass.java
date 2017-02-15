@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by Wassim on 09/02/2017.
+ * Created by Wassim on 10/02/2017.
  */
 
 public class RulesClass extends AppCompatActivity {

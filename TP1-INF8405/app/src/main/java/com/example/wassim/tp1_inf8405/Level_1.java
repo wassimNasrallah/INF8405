@@ -12,7 +12,7 @@ public class Level_1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.level1);
+        setContentView(R.layout.level_activity);
 
     }
 }

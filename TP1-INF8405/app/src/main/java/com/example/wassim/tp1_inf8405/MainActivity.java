@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.wassim.tp1_inf8405.elements.Board;
+import com.example.wassim.tp1_inf8405.elements.MapXmlLoader;
+
 public class MainActivity extends Activity {
 
     private Button rules;
@@ -16,8 +19,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MapXmlLoader.setContext(getApplicationContext());
         setContentView(R.layout.welcome_screen);
-
         butListener();
     }
 
