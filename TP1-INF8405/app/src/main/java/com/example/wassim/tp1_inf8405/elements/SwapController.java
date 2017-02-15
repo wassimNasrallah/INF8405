@@ -47,7 +47,7 @@ public class SwapController {
      * @return
      */
     private boolean isSwapAllowed(int cell1X,int cell1Y,int cell2X, int cell2Y){
-        return (Math.pow(cell1X + cell2X,2) + Math.pow(cell1Y + cell2Y,2))==1;
+        return (Math.pow(cell1X - cell2X,2) + Math.pow(cell1Y - cell2Y,2))==1;
     }
 
 }

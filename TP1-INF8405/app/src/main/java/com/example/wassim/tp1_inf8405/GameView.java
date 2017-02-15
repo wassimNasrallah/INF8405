@@ -148,13 +148,15 @@ private Board board ;
 
         switch (motionEvent.getAction() & MotionEvent.ACTION_MASK){
             //when the user press the screen
-            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_DOWN:
                 xStart = xIndex;
                 yStart = yIndex;
+                System.out.println("ActionDown"+xIndex+"|"+yIndex);
                 break;
             //when the user release the screen
-            case MotionEvent.ACTION_DOWN:
-                //TODO: call swap avec xstart,ystart, xindex et yindex
+            case MotionEvent.ACTION_UP:
+                System.out.println("ActionUP"+xIndex+"|"+yIndex);
+                board.getSwapController().swap(xStart,yStart,xIndex,yIndex);
                 break;
         }
         return true;

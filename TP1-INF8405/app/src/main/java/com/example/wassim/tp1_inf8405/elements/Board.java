@@ -42,6 +42,7 @@ public class Board {
 
     }
 
+    public SwapController getSwapController(){return swapController;}
     public Level getLevel() {
         return level;
     }
