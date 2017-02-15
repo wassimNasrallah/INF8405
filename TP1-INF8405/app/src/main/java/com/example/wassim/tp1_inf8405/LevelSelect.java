@@ -36,7 +36,7 @@ public class LevelSelect extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getBaseContext(), Level_1.class);
+                Intent myIntent = new Intent(getBaseContext(), GameScreen.class);
                 startActivity(myIntent);
             }
         });
@@ -46,7 +46,7 @@ public class LevelSelect extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getBaseContext(), Level_2.class);
+                Intent myIntent = new Intent(getBaseContext(), GameScreen.class);
                 startActivity(myIntent);
             }
         });
@@ -56,7 +56,7 @@ public class LevelSelect extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getBaseContext(), Level_3.class);
+                Intent myIntent = new Intent(getBaseContext(), GameScreen.class);
                 startActivity(myIntent);
             }
         });
@@ -66,7 +66,7 @@ public class LevelSelect extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getBaseContext(), Level_4.class);
+                Intent myIntent = new Intent(getBaseContext(), GameScreen.class);
                 startActivity(myIntent);
             }
         });
