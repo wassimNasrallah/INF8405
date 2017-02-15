@@ -88,6 +88,7 @@ public class MapXmlLoader extends AppCompatActivity {
                 cells[i][j++] = c;
             }
         }
+        System.out.println("rows:"+nbRow);
         return new Level(lvlName,ptsNeeded,nbMoves,cells,nbColumns,nbRow);
     }
 }

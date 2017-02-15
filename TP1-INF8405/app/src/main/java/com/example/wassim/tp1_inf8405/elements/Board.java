@@ -29,6 +29,7 @@ public class Board {
 
     private void prepareLevel(int lvl){
         level = levelFactory.buildLevel(lvl);
+        System.out.println("level rows:"+level.getAmountOfRows());
         actualScore = 0;
         movesDone = 0;
     }

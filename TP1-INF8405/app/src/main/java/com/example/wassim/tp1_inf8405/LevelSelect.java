@@ -34,7 +34,7 @@ public class LevelSelect extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getBaseContext(), GameScreen.class);
+                Intent myIntent = new Intent(getBaseContext(), GameActivity.class);
                 startActivity(myIntent);
             }
         });
