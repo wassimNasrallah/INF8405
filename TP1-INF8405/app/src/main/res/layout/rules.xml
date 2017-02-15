@@ -19,27 +19,27 @@
         android:layout_gravity="center"
         android:typeface="monospace"
         android:layout_marginTop="20dp"
-        android:text="Le jeu comprend une grille rectangulaire (de taille potentiellement variable). Les items
-présents dans la grille seront des cercles pleins, de couleurs rouge, bleu, vert, orange, jaune et violet.
+        android:text="  Le jeu comprend une grille rectangulaire (de taille potentiellement variable). Les items
+présents dans la grille seront des cercles pleins, de couleurs rouge, bleu, vert, orange, jaune et violet. \n \n
 
 Les échanges de place d’items se font par un glissement du doigt sur l’écran (généralement appelé swipe).
 Pour rappel, un échange n’est possible que verticalement ou horizontalement, et si
 l’échange permet de former un groupe de 3 items identiques alignés verticalement ou
-horizontalement. Dans le cas contraire, l’échange est interdit ou doit être annulé (voir Candy Crush pour un exemple de comportement possible).
+horizontalement. Dans le cas contraire, l’échange est interdit ou doit être annulé (voir Candy Crush pour un exemple de comportement possible).\n \n
 
 
-Lorsqu’un groupe de 3 est formé, celui-ci doit disparaître. Pour la version simplifiée, si un groupe fait plus de 3 items, il est supprimé de la même manière (il ne forme pas un nouvel item).
+Lorsqu’un groupe de 3 est formé, celui-ci doit disparaître. Pour la version simplifiée, si un groupe fait plus de 3 items, il est supprimé de la même manière (il ne forme pas un nouvel item).\n \n
 
 Les éléments qui se trouvaient au-dessus du groupe supprimé doivent descendre et de nouveaux
 éléments choisis aléatoirement parmi les couleurs possibles vont prendre la place qu’ils libèrent au
-haut de la grille.
+haut de la grille.\n \n
 
 A chaque échange effectué par le joueur, son nombre de coups restants est diminué de 1.
 Pour les scores :
 - Un groupe de 3 : + 100 points
 - Un groupe de 4 : + 200 points
 - Un groupe de 5 : + 300 points
-
+\n \n
 Si deux groupes (ou plus) sont supprimés en même temps, le score rapporté par le coup est
 l’addition des scores rapportés par chacun des groupes (exemple : suppression de 2 groupes de 3 : +
 200 points). Lorsque des combos sont réalisés (après la disparition d’un groupe, un nouveau groupe
@@ -47,7 +47,7 @@ est formé et peut être supprimé sans action du joueur), le score du nouveau g
 multiplié par 2. Si le combo se poursuit (par exemple la disparition de ce groupe permet la
 formation d’un nouveau groupe), le score est multiplié par 3. Et ainsi de suite jusqu’à ce que le
 combo soit brisé, c’est-à-dire jusqu’à ce que le joueur ait à nouveau effectué une action.
-
+\n \n
 Lorsque le nombre de coups restants atteint 0, le score final du niveau est affiché, et si le score est
 supérieur à l’objectif du niveau, il est possible de passer au niveau suivant."
         />
