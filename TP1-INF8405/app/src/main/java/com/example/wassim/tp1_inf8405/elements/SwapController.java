@@ -26,11 +26,12 @@ public class SwapController {
 
         Cell cell1 = level.getCells()[cell1Y][cell1X];
         Cell cell2 = level.getCells()[cell2Y][cell2X];
+
         boolean isSucces = false;
         if(cell1.isEmpty() || cell2.isEmpty()){
             isSucces = false;
         }
-        else if (!isSwapAllowed(cell1,cell2)){
+        else if (!isSwapAllowed( cell1X, cell1Y, cell2X,  cell2Y)){
             isSucces = false;
         } else{
             Item tempItem = cell1.getItem();
@@ -45,9 +46,8 @@ public class SwapController {
      * A swap is allowed only between horisontaly and verticaly adjacent cells
      * @return
      */
-    private boolean isSwapAllowed(Cell cell1, Cell cell2){
-        //TODO::calculate swapability
-        return false;
+    private boolean isSwapAllowed(int cell1X,int cell1Y,int cell2X, int cell2Y){
+        return (Math.pow(cell1X + cell2X,2) + Math.pow(cell1Y + cell2Y,2))==1;
     }
 
 }
