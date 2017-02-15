@@ -42,6 +42,8 @@ public class Board {
 
     }
 
+    public int getActualScore(){return actualScore;}
+    public int getMovesDone(){return  movesDone;}
     public SwapController getSwapController(){return swapController;}
     public Level getLevel() {
         return level;

@@ -98,6 +98,16 @@ private Board board ;
             canvas.drawColor(Color.WHITE);
             //draw images on canvas
 
+            String moves = "Mouvement"+(board.getMovesDone()>1?"s":"")+" effectué"+(board.getMovesDone()>1?"s":"")+" : "+board.getMovesDone();
+            String movesMax = "Mouvements maximum : "+board.getLevel().getMaxMoves();
+            String actualPts = "Point"+(board.getMovesDone()>1?"s":"")+" : "+board.getMovesDone();
+            String ptsMax = "Points requis : "+board.getLevel().getScoreGoal();
+            paint.setTextSize(40);
+            canvas.drawText(moves.toCharArray(),0,moves.length(),10,40,paint);
+            canvas.drawText(movesMax.toCharArray(),0,movesMax.length(),10,100,paint);
+            canvas.drawText(actualPts.toCharArray(),0,actualPts.length(),10,160,paint);
+            canvas.drawText(ptsMax.toCharArray(),0,ptsMax.length(),10,220,paint);
+
             int posY = 0;
             for(Cell[] ce : board.getLevel().getCells()){
                 int posX =0;
