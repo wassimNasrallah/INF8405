@@ -8,12 +8,8 @@ public class LevelFactory {
 
     public Level buildLevel(Level levelEnum){
         //TODO::call parser and fill the cells with the imported items
-        String levelName = null;
-        int score= 0;
-        int moves = 0;
-        Cell[][] boardCells = null;
 
-        return new Level(levelName,score,moves,boardCells);
+        return  null; //new Level(levelName,score,moves,boardCells, collumns, rows );
 
     }
 }

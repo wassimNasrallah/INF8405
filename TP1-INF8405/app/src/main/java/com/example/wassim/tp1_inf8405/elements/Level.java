@@ -6,15 +6,25 @@ package com.example.wassim.tp1_inf8405.elements;
 
 public class Level {
     private String levelName;
-    private Cell [][] cells;
+    private Cell[][] cells;
+    private int collumns;
+    private int rows;
     private int scoreGoal;
     private int maxMoves;
 
-    Level(final String levelName, final int score, final int moves, Cell[][] cells) {
+    Level(final String levelName, final int score, final int moves, Cell[][] cells, int collumns, int rows) {
         this.levelName = levelName;
         scoreGoal = score;
         maxMoves = moves;
         this.cells = cells;
+    }
+
+    public int getAmountOfCollumns() {
+        return collumns;
+    }
+
+    public int getAmountOfRows() {
+        return rows;
     }
 
     public String getLevelName() {
@@ -37,4 +47,7 @@ public class Level {
     }
 
 
+    public Cell[][] getCells() {
+        return cells;
+    }
 }

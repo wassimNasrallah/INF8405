@@ -6,13 +6,13 @@ package com.example.wassim.tp1_inf8405.elements;
 
 public class Cell {
     private Item currentItem;
-    private boolean isEmpty;
-    private int posX, posY;
+    private boolean isEmpty = true;
+    private boolean markedToBeDeleted = false;
 
-    public Cell(int x, int y){
-        posX = x;
-        posY = y;
-        isEmpty = true;
+
+    public Cell(Item newItem){
+        currentItem = newItem;
+        isEmpty = false;
     }
 
     public Item getItem(){
@@ -28,6 +28,14 @@ public class Cell {
     }
 
     public void setEmpty(){
+        isEmpty = true;
+    }
 
+    public boolean isMarkedToBeDeleted() {
+        return markedToBeDeleted;
+    }
+
+    public void setMarkedToBeDeleted(boolean markedToBeDeleted) {
+        this.markedToBeDeleted = markedToBeDeleted;
     }
 }

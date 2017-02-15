@@ -10,4 +10,7 @@ public class Item {
     public Item(ItemTypeEnum newType){
         type = newType;
     }
+    public ItemTypeEnum getType() {
+        return type;
+    }
 }

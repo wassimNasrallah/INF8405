@@ -5,11 +5,11 @@ package com.example.wassim.tp1_inf8405.elements;
  */
 
 public class Board {
-    //game
-
+    //game attributes
     private Level level;
-    private int score;
-    private int moves;
+    private int actualScore;
+    private int movesDone;
+    private boolean playing;
 
     //utilitary attributes
     ItemFactory itemFactory;
@@ -30,10 +30,20 @@ public class Board {
 
     private void prepareLevel(){
         level = levelFactory.buildLevel(level);
-        score = 0;
-        moves = 0;
+        actualScore = 0;
+        movesDone = 0;
     }
 
+    public void gameLoop(){
+        while(playing){
+
+        }
+
+    }
+
+    public Level getLevel() {
+        return level;
+    }
 
     public void update(){
 
