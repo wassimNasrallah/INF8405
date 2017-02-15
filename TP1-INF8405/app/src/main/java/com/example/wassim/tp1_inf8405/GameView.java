@@ -55,7 +55,7 @@ private Board board ;
 
         vector = vectorH<vectorW?vectorH:vectorW;
 
-        decal = (screenSize.y-30)-vector*(board.getLevel().getAmountOfRows()+1);
+        decal = (screenSize.y)-vector*(board.getLevel().getAmountOfRows()+1);
 
         bitMapForType = new HashMap<ItemTypeEnum, Bitmap>();
         bitMapForType.put(ItemTypeEnum.TYPE_BLUE,Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.blue), vector, vector, false));
@@ -64,8 +64,6 @@ private Board board ;
         bitMapForType.put(ItemTypeEnum.TYPE_PURPLE,Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.purple), vector, vector, false));
         bitMapForType.put(ItemTypeEnum.TYPE_RED,Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.red), vector, vector, false));
         bitMapForType.put(ItemTypeEnum.TYPE_YELLOW,Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.yellow), vector, vector, false));
-
-
 
         //initialize drawing objects
         paint = new Paint();
@@ -141,10 +139,15 @@ private Board board ;
 
     @Override
     public boolean onTouchEvent(MotionEvent motionEvent){
+
+        int xIndex,yIndex;
+        xIndex = Math.round(motionEvent.getX())/vector;
+        yIndex = Math.round(motionEvent.getY()-decal)/vector;
+
         switch (motionEvent.getAction() & MotionEvent.ACTION_MASK){
             //when the user press the screen
             case MotionEvent.ACTION_UP:
-
+                board.getLevel().getCells()[yIndex][xIndex].putItem(new Item(ItemTypeEnum.TYPE_NONE));
                 break;
             //when the user release the screen
             case MotionEvent.ACTION_DOWN:

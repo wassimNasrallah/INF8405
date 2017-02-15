@@ -21,8 +21,13 @@ public class GameActivity extends AppCompatActivity {
         Point size = new Point();
         display.getSize(size);
 
+        Bundle b = getIntent().getExtras();
+        int value = -1;
+        if(b != null)
+            value = b.getInt("key");
+
         //Initializing the game view
-        gameView = new GameView(this,new Board(1),size);
+        gameView = new GameView(this,new Board(value),size);
 
         setContentView(gameView);
     }

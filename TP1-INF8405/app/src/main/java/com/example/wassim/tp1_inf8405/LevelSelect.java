@@ -35,6 +35,9 @@ public class LevelSelect extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(getBaseContext(), GameActivity.class);
+                Bundle b = new Bundle();
+                b.putInt("key", 1);
+                myIntent.putExtras(b);
                 startActivity(myIntent);
             }
         });
@@ -44,7 +47,10 @@ public class LevelSelect extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getBaseContext(), GameScreen.class);
+                Intent myIntent = new Intent(getBaseContext(), GameActivity.class);
+                Bundle b = new Bundle();
+                b.putInt("key", 2);
+                myIntent.putExtras(b);
                 startActivity(myIntent);
             }
         });
@@ -54,7 +60,10 @@ public class LevelSelect extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getBaseContext(), GameScreen.class);
+                Intent myIntent = new Intent(getBaseContext(), GameActivity.class);
+                Bundle b = new Bundle();
+                b.putInt("key", 3);
+                myIntent.putExtras(b);
                 startActivity(myIntent);
             }
         });
@@ -64,7 +73,10 @@ public class LevelSelect extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getBaseContext(), GameScreen.class);
+                Intent myIntent = new Intent(getBaseContext(), GameActivity.class);
+                Bundle b = new Bundle();
+                b.putInt("key", 4);
+                myIntent.putExtras(b);
                 startActivity(myIntent);
             }
         });
