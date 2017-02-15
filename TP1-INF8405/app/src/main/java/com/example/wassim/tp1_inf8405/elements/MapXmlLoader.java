@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class MapXmlLoader extends AppCompatActivity {
 
-    private static Context context;
+    public static Context context;
 
     ///On sauve le context pour ne pas avoir besoin d'aller le chercher a chaque fois qu'un niveau doit etre ouvert
     public static void setContext(Context c) {
