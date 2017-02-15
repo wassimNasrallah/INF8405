@@ -9,18 +9,18 @@ public enum ItemTypeEnum {
     TYPE_GREEN("green"),
     TYPE_PURPLE("purple"),
     TYPE_RED("red"),
-    TYPE_WHITE("orange"),
+    TYPE_ORANGE("orange"),
     TYPE_YELLOW("yellow"),
     TYPE_NONE("");
 
-    private String texturePath;
+    private final String texturePath;
 
     ItemTypeEnum(final String texturePath) {
-
         this.texturePath = texturePath;
     }
 
     public String getTexturePath() {
         return texturePath;
     }
+
 }

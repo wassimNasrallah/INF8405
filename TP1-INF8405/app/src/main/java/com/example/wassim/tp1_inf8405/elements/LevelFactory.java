@@ -6,10 +6,14 @@ package com.example.wassim.tp1_inf8405.elements;
 
 public class LevelFactory {
 
-    public Level buildLevel(Level levelEnum){
+    public Level buildLevel(int levelId){
         //TODO::call parser and fill the cells with the imported items
-
-        return  null; //new Level(levelName,score,moves,boardCells, collumns, rows );
-
+        try{
+            return new MapXmlLoader().loadXml(levelId);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return  null;
+        }
     }
 }

@@ -21,7 +21,7 @@ public class Item {
                 break;
             case "o":;
             case "orange":
-                type = ItemTypeEnum.TYPE_WHITE;
+                type = ItemTypeEnum.TYPE_ORANGE;
                 break;
             case "r":;
             case "red":
@@ -35,6 +35,9 @@ public class Item {
             case "green":
                 type = ItemTypeEnum.TYPE_GREEN;
                 break;
+            case "p":;
+            case "purple":
+                type = ItemTypeEnum.TYPE_PURPLE;
 
         }
     }

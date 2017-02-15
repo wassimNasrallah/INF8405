@@ -18,19 +18,19 @@ public class Board {
     MatchFinder matchFinder;
     LevelFactory levelFactory;
 
-    public Board(Level level){
-        this.level = level;
-        prepareLevel();
+    public Board(int lvl){
+
         levelFactory = new LevelFactory();
         itemFactory = new ItemFactory();
         itemHandler = new ItemHandler();
         swapController = new SwapController(this);
         //matchFinder = new MatchFinder();
+        prepareLevel(lvl);
         matchFinder = null;
     }
 
-    private void prepareLevel(){
-        level = levelFactory.buildLevel(level);
+    private void prepareLevel(int lvl){
+        level = levelFactory.buildLevel(lvl);
         actualScore = 0;
         movesDone = 0;
     }
