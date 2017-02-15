@@ -1,13 +1,22 @@
-package com.example.gamyot.spacejet;
+package com.example.wassim.tp1_inf8405;
 
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import com.example.wassim.tp1_inf8405.elements.ItemTypeEnum;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.example.wassim.tp1_inf8405.elements.MapXmlLoader.context;
 
 /**
  * Created by gamyot on 2017-02-14.
@@ -26,10 +35,20 @@ public class GameView extends SurfaceView implements Runnable {
     private Canvas canvas;
     private SurfaceHolder surfaceHolder;
 
+    private Map<ItemTypeEnum,Bitmap> bitMapForType;
 
 
     public GameView(Context context, int screenX, int screenY) {
         super(context);
+
+        bitMapForType = new HashMap<ItemTypeEnum, Bitmap>();
+        bitMapForType.put(ItemTypeEnum.TYPE_BLUE,BitmapFactory.decodeResource(context.getResources(), R.drawable.blue));
+        bitMapForType.put(ItemTypeEnum.TYPE_GREEN,BitmapFactory.decodeResource(context.getResources(), R.drawable.green));
+        bitMapForType.put(ItemTypeEnum.TYPE_ORANGE,BitmapFactory.decodeResource(context.getResources(), R.drawable.orange));
+        bitMapForType.put(ItemTypeEnum.TYPE_PURPLE,BitmapFactory.decodeResource(context.getResources(), R.drawable.purple));
+        bitMapForType.put(ItemTypeEnum.TYPE_RED,BitmapFactory.decodeResource(context.getResources(), R.drawable.red));
+        bitMapForType.put(ItemTypeEnum.TYPE_YELLOW,BitmapFactory.decodeResource(context.getResources(), R.drawable.yellow));
+
 
         //initialize player
         player = new Player(context, screenX, screenY);
