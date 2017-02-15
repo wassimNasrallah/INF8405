@@ -27,9 +27,11 @@ public class Cell {
         return isEmpty;
     }
 
-    public void setEmpty(){
-        isEmpty = true;
-        putItem( new Item(ItemTypeEnum.TYPE_NONE));
+    public void setEmpty(boolean isEmpty){
+        this.isEmpty = isEmpty;
+        if(isEmpty == true){
+            putItem( new Item(ItemTypeEnum.TYPE_NONE));
+        }
     }
 
     public boolean isMarkedToBeDeleted() {
