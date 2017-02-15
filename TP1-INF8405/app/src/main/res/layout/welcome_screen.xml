@@ -4,15 +4,6 @@
     android:layout_height="match_parent">
 
     <Button
-        android:text="Quitter"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonQuit"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="238dp" />
-
-    <Button
         android:text="Regles du jeu"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
@@ -26,8 +17,17 @@
         android:layout_height="wrap_content"
         android:id="@+id/buttonStart"
         android:layout_width="200dp"
-        android:layout_above="@+id/buttonRules"
+        android:layout_marginBottom="100dp"
+        android:layout_alignBottom="@+id/buttonRules"
         android:layout_alignLeft="@+id/buttonRules"
-        android:layout_alignStart="@+id/buttonRules"
-        android:layout_marginBottom="79dp" />
+        android:layout_alignStart="@+id/buttonRules" />
+
+    <Button
+        android:text="Quitter"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonQuit"
+        android:layout_marginTop="59dp"
+        android:layout_below="@+id/buttonRules"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
