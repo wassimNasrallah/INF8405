@@ -13,4 +13,29 @@ public class Item {
     public ItemTypeEnum getType() {
         return type;
     }
+    public Item(String stringType){
+        switch (stringType){
+            case "b":;
+            case "blue":
+                type = ItemTypeEnum.TYPE_BLUE;
+                break;
+            case "o":;
+            case "orange":
+                type = ItemTypeEnum.TYPE_WHITE;
+                break;
+            case "r":;
+            case "red":
+                type = ItemTypeEnum.TYPE_RED;
+                break;
+            case "y":;
+            case "yellow":
+                type = ItemTypeEnum.TYPE_YELLOW;
+                break;
+            case "g":;
+            case "green":
+                type = ItemTypeEnum.TYPE_GREEN;
+                break;
+
+        }
+    }
 }

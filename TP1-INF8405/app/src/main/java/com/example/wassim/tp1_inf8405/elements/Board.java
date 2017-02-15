@@ -25,7 +25,8 @@ public class Board {
         itemFactory = new ItemFactory();
         itemHandler = new ItemHandler();
         swapController = new SwapController(this);
-        matchFinder = new MatchFinder();
+        //matchFinder = new MatchFinder();
+        matchFinder = null;
     }
 
     private void prepareLevel(){

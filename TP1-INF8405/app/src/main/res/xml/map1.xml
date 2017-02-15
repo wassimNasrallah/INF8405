@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<value>
+    <MapInfo>nbRow = "5" nbColumns = "8" nbMove = "6" ptsNeeded = "800"</MapInfo>
+    <row>y g g y g y p p</row>
+    <row>g p o r b b o b</row>
+    <row>b r o r b g o r</row>
+    <row>p o p b o g g o</row>
+    <row>y r y o b r g p</row>
+</value>
