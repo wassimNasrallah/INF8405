@@ -5,10 +5,10 @@ package com.example.wassim.tp1_inf8405.elements;
  */
 
 public class SwapController {
-    private Board board;
+    private Level level;
 
-    public SwapController(Board newBoard){
-        board = newBoard;
+    public SwapController(Level level){
+        this.level = level;
     }
 
     /***
@@ -16,7 +16,16 @@ public class SwapController {
      * @param cell1
      * @param cell2
      */
-    public boolean swap(Cell cell1, Cell cell2){
+    public boolean swap(int cell1X,int cell1Y,int cell2X, int cell2Y){
+        if(!(cell1Y < level.getAmountOfRows()
+                && cell2Y < level.getAmountOfRows()
+                && cell1X < level.getAmountOfCollumns()
+                && cell2X < level.getAmountOfCollumns())){
+            return false;
+        }
+
+        Cell cell1 = level.getCells()[cell1Y][cell1X];
+        Cell cell2 = level.getCells()[cell2Y][cell2X];
         boolean isSucces = false;
         if(cell1.isEmpty() || cell2.isEmpty()){
             isSucces = false;
@@ -24,7 +33,9 @@ public class SwapController {
         else if (!isSwapAllowed(cell1,cell2)){
             isSucces = false;
         } else{
-            //TODO::swap items (not cells)
+            Item tempItem = cell1.getItem();
+            cell1.putItem(cell2.getItem());
+            cell2.putItem(tempItem);
             isSucces = true;
         }
         return isSucces;
