@@ -22,9 +22,10 @@ public class Board {
 
         levelFactory = new LevelFactory();
         itemFactory = new ItemFactory();
-        itemHandler = new ItemHandler();
-        swapController = new SwapController(this);
+
         prepareLevel(lvl);
+        itemHandler = new ItemHandler(level);
+        swapController = new SwapController(level);
     }
 
     private void prepareLevel(int lvl){
@@ -41,6 +42,7 @@ public class Board {
 
     }
 
+    public SwapController getSwapController(){return swapController;}
     public Level getLevel() {
         return level;
     }
