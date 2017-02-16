@@ -107,6 +107,11 @@ private Board board ;
             canvas.drawText(actualPts.toCharArray(),0,actualPts.length(),10,160,paint);
             canvas.drawText(ptsMax.toCharArray(),0,ptsMax.length(),10,220,paint);
 
+            paint.setColor(Color.LTGRAY);
+            canvas.drawRect(10,270,310,330,paint);
+            paint.setColor(Color.BLACK);
+            canvas.drawText("Recommencer",0,"Recommencer".length(),20,310,paint);
+
             int posY = 0;
             for(Cell[] ce : board.getLevel().getCells()){
                 int posX =0;
@@ -133,12 +138,6 @@ private Board board ;
     public void pause(){
         //pausing the game loop
         playing = false;
-        try {
-            //stoping the thread
-            gameThread.join();
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }
     }
 
     public void resume(){
@@ -151,24 +150,28 @@ private Board board ;
     @Override
     public boolean onTouchEvent(MotionEvent motionEvent){
 
-        int xIndex,yIndex;
-        xIndex = Math.round(motionEvent.getX())/vector;
-        yIndex = Math.round(motionEvent.getY()-decal)/vector;
+        if(motionEvent.getX()<310 && motionEvent.getX()>10&& motionEvent.getY()>270&&motionEvent.getY()<330+123456789){
+            Ga.restart();
+        }else {
+            int xIndex, yIndex;
+            xIndex = Math.round(motionEvent.getX()) / vector;
+            yIndex = Math.round(motionEvent.getY() - decal) / vector;
 
-        switch (motionEvent.getAction() & MotionEvent.ACTION_MASK){
-            //when the user press the screen
-            case MotionEvent.ACTION_DOWN:
-                xStart = xIndex;
-                yStart = yIndex;
-                break;
-            //when the user release the screen
-            case MotionEvent.ACTION_UP:
-                int swapPoints = board.getSwapController().swap(xStart,yStart,xIndex,yIndex);
-                if (swapPoints > 0) {
-                    board.addToActualScore(swapPoints);
-                    board.incrementMovesDone();
-                }
-                break;
+            switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
+                //when the user press the screen
+                case MotionEvent.ACTION_DOWN:
+                    xStart = xIndex;
+                    yStart = yIndex;
+                    break;
+                //when the user release the screen
+                case MotionEvent.ACTION_UP:
+                    int swapPoints = board.getSwapController().swap(xStart,yStart,xIndex,yIndex);
+                    if (swapPoints > 0) {
+                        board.addToActualScore(swapPoints);
+                        board.incrementMovesDone();
+                    }
+                    break;
+            }
         }
         return true;
     }
