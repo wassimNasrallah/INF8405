@@ -73,7 +73,6 @@ private Board board ;
 
     }
 
-
     @Override
     public void run() {
         while(playing){
@@ -84,9 +83,8 @@ private Board board ;
 
     }
 
-
     private void update() {
-        //player.update();
+        ((GameActivity)context).update();
     }
 
     private void draw(){
@@ -100,7 +98,7 @@ private Board board ;
 
             String moves = "Mouvement"+(board.getMovesDone()>1?"s":"")+" effectué"+(board.getMovesDone()>1?"s":"")+" : "+board.getMovesDone();
             String movesMax = "Mouvements maximum : "+board.getLevel().getMaxMoves();
-            String actualPts = "Point"+(board.getMovesDone()>1?"s":"")+" : "+board.getMovesDone();
+            String actualPts = "Point"+(board.getActualScore()>1?"s":"")+" : "+board.getActualScore();
             String ptsMax = "Points requis : "+board.getLevel().getScoreGoal();
             paint.setTextSize(40);
             canvas.drawText(moves.toCharArray(),0,moves.length(),10,40,paint);
