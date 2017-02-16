@@ -18,12 +18,12 @@ public class SwapController {
      * @param cell1
      * @param cell2
      */
-    public boolean swap(int cell1X,int cell1Y,int cell2X, int cell2Y){
+    public int swap(int cell1X,int cell1Y,int cell2X, int cell2Y){
         if(!(cell1Y < level.getAmountOfRows()
                 && cell2Y < level.getAmountOfRows()
                 && cell1X < level.getAmountOfCollumns()
                 && cell2X < level.getAmountOfCollumns())){
-            return false;
+            return 0;
         }
 
         Cell cell1 = level.getCells()[cell1Y][cell1X];
@@ -42,22 +42,49 @@ public class SwapController {
             isSucces = true;
         }
 
-        MatchFinder matchFinder = new MatchFinder(level);
+        int swapPoints = 0;
+        if (isSucces) {
+            MatchFinder matchFinder = new MatchFinder(level);
 
-        List<MatchResult> matchResultList = matchFinder.findMatches();
-        if(matchResultList.size() < 1){
-            isSucces = false;
-            //unswap
-            Item tempItem = cell1.getItem();
-            cell1.putItem(cell2.getItem());
-            cell2.putItem(tempItem);
+            List<MatchResult> matchResultList = matchFinder.findMatches();
+            if (matchResultList.size() < 1) {
+                isSucces = false;
+                //unswap
+                Item tempItem = cell1.getItem();
+                cell1.putItem(cell2.getItem());
+                cell2.putItem(tempItem);
+            } else {
+                for(MatchResult result: matchResultList){
+                    //increment points
+                    swapPoints += result.getPoints();
+                    //set cell to empty
+                    removeItemsFrom(result);
+                }
+            }
         }
-        else{
-            //delete cells and increment score and swap count
+
+        return swapPoints;
+    }
+
+    /**
+     * removes all the items in the cell that generated a match
+     * @param result
+     */
+    private void removeItemsFrom(MatchResult result) {
+        int x = result.getPositionX();
+        int y = result.getPositionY();
+        int horizontalSize = result.getHorizontalSize();
+        int verticalSize = result.getVerticalSize();
+
+        for (int i = y; i<horizontalSize ;i++){
+            level.getCells()[x][i].setEmpty(true);
+        }
+
+        for (int j = y; j<verticalSize ;j++){
+            level.getCells()[j][y].setEmpty(true);
         }
 
 
-        return isSucces;
     }
 
     /***

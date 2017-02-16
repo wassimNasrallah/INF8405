@@ -26,12 +26,12 @@ public class MatchFinder {
      */
     public List<MatchResult> findMatches(){
         List<MatchResult> matchResultList = new ArrayList<>();
-        for (int i = 0 ; i < level.getAmountOfCollumns(); i++){
-            for (int j =0; i < level.getAmountOfRows(); j++){
+        for (int i = 0 ; i < level.getAmountOfRows(); i++){
+            for (int j = 0; j < level.getAmountOfCollumns(); j++){
                 MatchResult matchResult = findCellMatches(i, j);
                 if (matchResult.getPoints() > 0 ){
                     matchResultList.add(matchResult);
-                    //consider deleting the matching items here
+
                 }
             }
         }
@@ -50,10 +50,10 @@ public class MatchFinder {
      * information about adjacent matches
      */
     public MatchResult findCellMatches(int x, int y){
-        MatchResult result = new MatchResult(boardCells[y][x],x,y);
+        MatchResult result = new MatchResult(boardCells[x][y],x,y);
         //horisontal check
         int horisontalCount = countRightMatches(x, y);
-        if (horisontalCount>3){
+        if (horisontalCount>=3){
             result.setHorizontalSize(horisontalCount);
             result.addPoints(calculatePoints(horisontalCount));
         }
@@ -68,15 +68,16 @@ public class MatchFinder {
     }
 
     private int countRightMatches(int x, int y) {
-        int result = 0;
-        Cell actualCell = boardCells[y][x];
+        int result = 1;
+        Cell actualCell = boardCells[x][y];
         int i = x;
         boolean doContinue = true;
         boolean foundDifferent = false;
         while(doContinue){
             i++;
             if(i < level.getAmountOfCollumns() && !foundDifferent){
-                if (boardCells[y][i].getItem().getType() == actualCell.getItem().getType()){
+                if (boardCells[x][i].getItem().getType() == actualCell.getItem().getType()
+                        && boardCells[x][i].getItem().getType() != ItemTypeEnum.TYPE_NONE){
                     result++;
                 }else{
                     foundDifferent = true;
@@ -90,15 +91,16 @@ public class MatchFinder {
 
     private int countDownMatches(int x, int y) {
         int result = 0;
-        Cell actualCell = boardCells[y][x];
+        Cell actualCell = boardCells[x][y];
         int i = x;
         boolean doContinue = true;
         boolean foundDifferent = false;
         while(doContinue){
             i++;
             if(i < level.getAmountOfRows() && !foundDifferent){
-                Cell comparedCell = boardCells[i][x];
-                if (comparedCell.getItem().getType() == actualCell.getItem().getType()){
+                Cell comparedCell = boardCells[i][y];
+                if (comparedCell.getItem().getType() == actualCell.getItem().getType()
+                        && boardCells[x][i].getItem().getType() != ItemTypeEnum.TYPE_NONE){
                     result++;
                 }else{
                     foundDifferent = true;

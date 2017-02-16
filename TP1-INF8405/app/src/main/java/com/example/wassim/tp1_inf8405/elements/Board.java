@@ -35,12 +35,6 @@ public class Board {
         movesDone = 0;
     }
 
-    public void gameLoop(){
-        while(playing){
-
-        }
-
-    }
 
     public int getActualScore(){return actualScore;}
     public int getMovesDone(){return  movesDone;}
