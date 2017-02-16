@@ -36,27 +36,36 @@ public class GameActivity extends AppCompatActivity {
         setContentView(gameView);
     }
 
+    public void restart(){
+        gameView.pause();
+        Intent myIntent = new Intent(getBaseContext(), GameActivity.class);
+        Bundle b = new Bundle();
+        b.putInt("key", board.getCurrentLvl());
+        myIntent.putExtras(b);
+        startActivity(myIntent);
+    }
+
     public void update(){
         if(board.getLevel().getScoreGoal()<=board.getActualScore()){
+            gameView.pause();
             if(board.getCurrentLvl()<4) {
                 board = new Board(board.getCurrentLvl() + 1);
-
-                Display display = getWindowManager().getDefaultDisplay();
-                Point size = new Point();
-                display.getSize(size);
-                gameView = new GameView(this, board, size);
-                setContentView(gameView);
+                Intent myIntent = new Intent(getBaseContext(), GameActivity.class);
+                Bundle b = new Bundle();
+                b.putInt("key", board.getCurrentLvl()+1);
+                myIntent.putExtras(b);
+                startActivity(myIntent);
             }else{
                 Intent myIntent = new Intent(getBaseContext(), MainActivity.class);
                 startActivity(myIntent);
             }
         }else if(board.getLevel().getMaxMoves()<board.getMovesDone()){
-            board = new Board(board.getCurrentLvl() + 1);
-            Display display = getWindowManager().getDefaultDisplay();
-            Point size = new Point();
-            display.getSize(size);
-            gameView = new GameView(this,board,size);
-            setContentView(gameView);
+            gameView.pause();
+            Intent myIntent = new Intent(getBaseContext(), GameActivity.class);
+            Bundle b = new Bundle();
+            b.putInt("key", board.getCurrentLvl());
+            myIntent.putExtras(b);
+            startActivity(myIntent);
         }
     }
 
