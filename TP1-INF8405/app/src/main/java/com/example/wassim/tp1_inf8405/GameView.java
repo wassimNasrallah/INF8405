@@ -43,12 +43,13 @@ public class GameView extends SurfaceView implements Runnable {
     private int xStart;
     private int yStart;
     private Map<ItemTypeEnum,Bitmap> bitMapForType;
+    private GameActivity Ga;
 
 private Board board ;
-    public GameView(Context context, Board board,Point size) {
+    public GameView(GameActivity context, Board board,Point size) {
         super(context);
+        Ga = context;
         this.board = board;
-
 
         screenSize = size;
         System.out.println(board.getLevel().getAmountOfRows());
@@ -73,7 +74,6 @@ private Board board ;
 
     }
 
-
     @Override
     public void run() {
         while(playing){
@@ -84,9 +84,8 @@ private Board board ;
 
     }
 
-
     private void update() {
-        //player.update();
+        Ga.update();
     }
 
     private void draw(){
@@ -100,7 +99,7 @@ private Board board ;
 
             String moves = "Mouvement"+(board.getMovesDone()>1?"s":"")+" effectué"+(board.getMovesDone()>1?"s":"")+" : "+board.getMovesDone();
             String movesMax = "Mouvements maximum : "+board.getLevel().getMaxMoves();
-            String actualPts = "Point"+(board.getMovesDone()>1?"s":"")+" : "+board.getMovesDone();
+            String actualPts = "Point"+(board.getActualScore()>1?"s":"")+" : "+board.getActualScore();
             String ptsMax = "Points requis : "+board.getLevel().getScoreGoal();
             paint.setTextSize(40);
             canvas.drawText(moves.toCharArray(),0,moves.length(),10,40,paint);
@@ -161,11 +160,9 @@ private Board board ;
             case MotionEvent.ACTION_DOWN:
                 xStart = xIndex;
                 yStart = yIndex;
-                System.out.println("ActionDown"+xIndex+"|"+yIndex);
                 break;
             //when the user release the screen
             case MotionEvent.ACTION_UP:
-                System.out.println("ActionUP"+xIndex+"|"+yIndex);
                 board.getSwapController().swap(xStart,yStart,xIndex,yIndex);
                 break;
         }

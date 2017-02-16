@@ -10,6 +10,7 @@ public class Board {
     private int actualScore;
     private int movesDone;
     private boolean playing;
+    private int currentLvl;
 
     //utilitary attributes
     ItemFactory itemFactory;
@@ -20,6 +21,7 @@ public class Board {
 
     public Board(int lvl){
 
+        this.currentLvl = lvl;
         levelFactory = new LevelFactory();
         itemFactory = new ItemFactory();
 
@@ -36,6 +38,7 @@ public class Board {
     }
 
 
+    public int getCurrentLvl(){return currentLvl;}
     public int getActualScore(){return actualScore;}
     public int getMovesDone(){return  movesDone;}
     public SwapController getSwapController(){return swapController;}
