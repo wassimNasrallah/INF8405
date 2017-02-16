@@ -70,7 +70,7 @@ public class MatchFinder {
     private int countRightMatches(int x, int y) {
         int result = 1;
         Cell actualCell = boardCells[x][y];
-        int i = x;
+        int i = y;
         boolean doContinue = true;
         boolean foundDifferent = false;
         while(doContinue){

@@ -41,6 +41,15 @@ public class Board {
     public int getCurrentLvl(){return currentLvl;}
     public int getActualScore(){return actualScore;}
     public int getMovesDone(){return  movesDone;}
+
+    public void addToActualScore(int actualScore) {
+        this.actualScore += actualScore;
+    }
+
+    public void incrementMovesDone( ) {
+        this.movesDone++;
+    }
+
     public SwapController getSwapController(){return swapController;}
     public Level getLevel() {
         return level;

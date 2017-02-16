@@ -163,7 +163,11 @@ private Board board ;
                 break;
             //when the user release the screen
             case MotionEvent.ACTION_UP:
-                board.getSwapController().swap(xStart,yStart,xIndex,yIndex);
+                int swapPoints = board.getSwapController().swap(xStart,yStart,xIndex,yIndex);
+                if (swapPoints > 0) {
+                    board.addToActualScore(swapPoints);
+                    board.incrementMovesDone();
+                }
                 break;
         }
         return true;
